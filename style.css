@@ -1,0 +1,64 @@
+:root {
+    --primary: #007bff;
+    --success: #28a745;
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #333;
+    --border: #ddd;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding-bottom: 70px; /* 避開底部導覽 */
+}
+
+.app-container { max-width: 600px; margin: 0 auto; }
+.hidden { display: none !important; }
+
+/* 導覽列 */
+.main-header { background: var(--card-bg); padding: 10px 20px; border-bottom: 1px solid var(--border); text-align: center; }
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    height: 60px; background: var(--card-bg); border-top: 1px solid var(--border);
+    display: flex; justify-content: space-around; align-items: center;
+    z-index: 100;
+}
+.nav-btn { background: none; border: none; font-size: 14px; opacity: 0.6; cursor: pointer; }
+.nav-btn.active { opacity: 1; font-weight: bold; color: var(--primary); }
+
+/* 通用表單元件 */
+.form-control { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+.btn-primary { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; }
+.btn-success { background: var(--success); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 20px; }
+.full-width { width: 100%; }
+
+/* Tab View */
+.tab-view { display: none; padding: 15px; }
+.tab-view.active { display: block; }
+
+/* 訓練記錄區 */
+.logger-card { background: var(--card-bg); padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; }
+.input-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.input-group { flex: 1; }
+.stepper { display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.stepper input { flex: 1; border: none; text-align: center; font-size: 18px; -moz-appearance: textfield; }
+.btn-step { background: #eee; border: none; width: 40px; font-size: 20px; cursor: pointer; }
+
+/* 備註框 */
+.note-box { background: #fff3cd; color: #856404; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px; }
+
+/* 列表樣式 */
+.log-list, .manage-list, .history-list { margin-top: 15px; }
+.list-item { background: var(--card-bg); padding: 12px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.list-item-col { display: flex; flex-direction: column; }
+.sub-text { font-size: 12px; color: #666; margin-top: 4px; }
+
+/* 日曆簡化 */
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 18px; font-weight: bold; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+.cal-day { padding: 8px 0; border-radius: 4px; font-size: 14px; }
+.cal-day.has-data { background: #d1e7dd; color: #0f5132; font-weight: bold; cursor: pointer; }
+.cal-day.selected { border: 2px solid var(--primary); }

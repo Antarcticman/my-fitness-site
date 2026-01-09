@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1 id="pageTitle">訓練</h1>
+        </header>
+
+        <main id="mainContent">
+            <section id="tab-workout" class="tab-view active">
+                <div class="selector-group">
+                    <select id="partSelect" class="form-control"><option>載入中...</option></select>
+                    <select id="exerciseSelect" class="form-control"><option>請先選擇部位</option></select>
+                </div>
+                <div id="exerciseNoteDisplay" class="note-box hidden">
+                    <span class="note-icon">💡</span> <span id="noteText"></span>
+                </div>
+                
+                <div class="logger-card">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>重量 (kg)</label>
+                            <div class="stepper">
+                                <button class="btn-step" data-action="minus-weight">-</button>
+                                <input type="number" id="weightInput" value="0" step="2.5">
+                                <button class="btn-step" data-action="plus-weight">+</button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>次數 (reps)</label>
+                            <div class="stepper">
+                                <button class="btn-step" data-action="minus-reps">-</button>
+                                <input type="number" id="repsInput" value="10">
+                                <button class="btn-step" data-action="plus-reps">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="addSetBtn" class="btn-primary full-width">紀錄此組</button>
+                </div>
+
+                <div id="todayLogList" class="log-list"></div>
+                <button id="finishWorkoutBtn" class="btn-success full-width hidden">完成今日訓練 (寫入資料庫)</button>
+            </section>
+
+            <section id="tab-history" class="tab-view">
+                <div class="calendar-header">
+                    <button id="calPrev">&lt;</button>
+                    <span id="calMonthLabel"></span>
+                    <button id="calNext">&gt;</button>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+                <div id="historyList" class="history-list"></div>
+            </section>
+
+            <section id="tab-manage" class="tab-view">
+                <div class="manage-form">
+                    <h3>新增/編輯動作</h3>
+                    <input type="text" id="mPart" placeholder="部位 (如: 胸)" class="form-control">
+                    <input type="text" id="mName" placeholder="動作名稱" class="form-control">
+                    <textarea id="mNote" placeholder="備註 (呼吸、椅子高度...)" class="form-control"></textarea>
+                    <button id="saveExerciseBtn" class="btn-primary">儲存動作</button>
+                </div>
+                <hr>
+                <div id="exerciseList" class="manage-list"></div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-target="tab-workout">🏋️ 訓練</button>
+            <button class="nav-btn" data-target="tab-history">📅 紀錄</button>
+            <button class="nav-btn" data-target="tab-manage">⚙️ 管理</button>
+        </nav>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
